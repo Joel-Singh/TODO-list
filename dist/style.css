@@ -27,3 +27,22 @@ main {
 aside {
   background-color: var(--grey);
 }
+
+.project-list-header {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--white);
+  height: 10%;
+}
+
+.project-list-header > * {
+  display: inline;
+}
+
+.project-list-header > h1 {
+  margin-left: 25px;
+  margin-top: -5px;
+  font-size: 1.5rem;
+}
