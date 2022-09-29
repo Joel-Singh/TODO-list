@@ -54,3 +54,29 @@ aside {
   gap: 15px;
   padding: 30px;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-name {
+  padding: 20px;
+  font-size: 2rem;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.task {
+  width: 85%;
+  height: max-content;
+  padding: 4px;
+  border-radius: 20px;
+}
