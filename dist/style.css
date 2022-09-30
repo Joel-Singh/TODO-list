@@ -80,3 +80,18 @@ main {
   padding: 4px;
   border-radius: 20px;
 }
+
+.not-urgent-task {
+  color: lightgreen;
+  background-color: darkgreen;
+}
+
+.urgent-task {
+  color: yellow;
+  background-color: darkgoldenrod;
+}
+
+.very-urgent-task {
+  color: pink;
+  background-color: darkred;
+}
