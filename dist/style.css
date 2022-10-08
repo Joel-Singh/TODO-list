@@ -82,6 +82,23 @@ main {
   background-color: white;
 }
 
+.priority-btn-wrapper button {
+  aspect-ratio: 1 / 1;
+  height: 80%;
+}
+
+.not-urgent-btn {
+  background-color: lightgreen;
+}
+
+.urgent-btn {
+  background-color: yellow;
+}
+
+.very-urgent-btn {
+  background-color: red;
+}
+
 .not-urgent-task {
   color: lightgreen;
   background-color: darkgreen;
