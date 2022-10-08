@@ -76,9 +76,10 @@ main {
 
 .task {
   width: 85%;
-  height: max-content;
+  height: 40px;
   padding: 4px;
-  border-radius: 20px;
+  border-radius: 25px;
+  background-color: white;
 }
 
 .not-urgent-task {
