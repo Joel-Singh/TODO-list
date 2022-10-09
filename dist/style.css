@@ -117,7 +117,7 @@ main {
   resize: none;
   display: block;
   height: 50px;
-  width: max-content;
+  width: 100%;
   margin: 0 auto;
   grid-area: description;
 }
