@@ -110,7 +110,8 @@ main {
 .description {
   resize: none;
   display: block;
-  height: 50px;
+  height: auto;
+  padding: 0 10px;
   width: 100%;
   margin: 0 auto;
   grid-area: description;
