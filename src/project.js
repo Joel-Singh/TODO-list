@@ -19,3 +19,5 @@ const makeProject = (name) => {
     }
   }
 }
+
+export { makeProject, makeTask }
