@@ -87,6 +87,15 @@ main {
   height: 80%;
 }
 
+.description {
+  resize: none;
+  display: block;
+  height: 50px;
+  width: 33%;
+  margin: 0 auto;
+  grid-column: 1 / -1;
+}
+
 .not-urgent-btn {
   background-color: lightgreen;
 }
@@ -114,11 +123,3 @@ main {
   background-color: darkred;
 }
 
-.description {
-  resize: none;
-  display: block;
-  height: 50px;
-  width: 33%;
-  margin: 0 auto;
-  grid-column: 1 / -1;
-}
