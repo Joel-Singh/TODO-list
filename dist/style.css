@@ -76,22 +76,16 @@ main {
 
 .task {
   width: 85%;
-  height: min-content;
   padding: 4px;
   border-radius: 25px;
   background-color: white;
   display: grid;
-  grid-template-rows: max-content max-content;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     'name priority-btn-wrapper due-date'
     'description description description';
   justify-items: center;
   align-items: center;
-}
-
-.task > * {
-  width: max-content;
 }
 
 .name {
