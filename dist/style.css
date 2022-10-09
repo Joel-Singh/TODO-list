@@ -76,15 +76,30 @@ main {
 
 .task {
   width: 85%;
-  height: 40px;
+  height: min-content;
   padding: 4px;
   border-radius: 25px;
   background-color: white;
+  display: grid;
+  grid-template-rows: max-content max-content;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    'name priority-btn-wrapper due-date'
+    'description description description';
+}
+
+.name {
+  grid-area: name;
 }
 
 .priority-btn-wrapper button {
   aspect-ratio: 1 / 1;
   height: 80%;
+  grid-area: priority-btn-wrapper;
+}
+
+.due-date {
+  grid-area: due-date;
 }
 
 .description {
@@ -93,7 +108,7 @@ main {
   height: 50px;
   width: 33%;
   margin: 0 auto;
-  grid-column: 1 / -1;
+  grid-area: description;
 }
 
 .not-urgent-btn {
