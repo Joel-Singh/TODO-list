@@ -30,8 +30,9 @@ aside {
 
 .project-list-header {
   display: flex;
-  gap: 15px;
-  justify-content: flex-start;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
   align-items: center;
   background-color: var(--white);
   height: 72px;
@@ -42,8 +43,6 @@ aside {
 }
 
 .project-list-header > h1 {
-  margin-left: 25px;
-  margin-top: -5px;
   font-size: 1.5rem;
 }
 
