@@ -111,10 +111,10 @@ main {
   resize: none;
   display: block;
   height: auto;
-  padding: 0 10px;
   width: 100%;
   margin: 0 auto;
   grid-area: description;
+  text-align: center;
 }
 
 .not-urgent-btn {
