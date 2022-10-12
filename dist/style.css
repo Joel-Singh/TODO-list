@@ -42,6 +42,22 @@ aside {
   font-size: 1.5rem;
 }
 
+.insert-new-project-name {
+  display: flex;
+  width: min(100%, 300px);
+}
+
+.confirm-btn {
+  padding: 0;
+  margin: 0;
+  width: 30px;
+}
+
+.new-project-name-input {
+  width: 1px;
+  flex-grow: 1;
+}
+
 .project-list {
   display: flex;
   flex-direction: column;
@@ -138,4 +154,3 @@ main {
   color: pink;
   background-color: darkred;
 }
-
