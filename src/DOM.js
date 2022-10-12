@@ -1,3 +1,4 @@
+const newTaskBtn = document.querySelector(".new-task-btn");
 function createTaskDomElement(taskObject) {
   const task = document.createElement('div')
   task.classList.add('task')
@@ -30,6 +31,12 @@ function createTaskDomElement(taskObject) {
 
   task.append(title, btnWrapper, dueDate, description)
   return task
+}
+
+function displayTasksOnDom(projectObject) {
+  projectObject.getTasks().forEach((task) => {
+    newTaskBtn.after(task.createDomElement());
+  })
 }
 
 export { createTaskDomElement }
