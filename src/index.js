@@ -1,4 +1,3 @@
-import { makeTask } from './project.js'
 
 const newProjectBtn = document.querySelector('#new-project')
 const insNewProjName = document.querySelector('.insert-new-project-name')
