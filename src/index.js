@@ -1,9 +1,9 @@
 
-const newProjectBtn = document.querySelector('#new-project')
-const insNewProjName = document.querySelector('.insert-new-project-name')
-const confirmBtn = document.querySelector('.confirm-btn')
 
 function setUpEventListeners() {
+  const insNewProjName = document.querySelector('.insert-new-project-name')
+  const confirmBtn = document.querySelector('.confirm-btn')
+  const newProjectBtn = document.querySelector('#new-project')
   newProjectBtn.addEventListener('click', () => {
     newProjectBtn.setAttribute('style', 'display: none')
     insNewProjName.setAttribute('style', 'display: flex')
