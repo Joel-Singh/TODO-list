@@ -1,4 +1,7 @@
+import { makeProject } from './project.js'
+const allProjects = []
 const newTaskBtn = document.querySelector('.new-task-btn')
+const projectListDOM = document.querySelector('.project-list')
 function createTaskDomElement(taskObject) {
   const task = document.createElement('div')
   task.classList.add('task')
@@ -39,4 +42,14 @@ function displayTasksOnDom(projectObject) {
   })
 }
 
-export { createTaskDomElement }
+function addProject(name) {
+  const newProj = makeProject(name)
+  allProjects.push(newProj)
+  function renderProjOnDom(proj) {
+    const domElement = document.createElement('div')
+    domElement.innerText = newProj.name
+  }
+  projectListDOM.prepend(domElement)
+}
+
+export { createTaskDomElement, addProject }
