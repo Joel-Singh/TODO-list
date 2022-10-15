@@ -37,6 +37,10 @@ function createTaskDomElement(taskObject) {
 }
 
 function displayTasksOnDom(projectObject) {
+  allDomTasks = [...document.querySelectorAll(".task-list > .task")];
+  allDomTasks.forEach(element => {
+    element.remove();
+  });
   projectObject.getTasks().forEach((task) => {
     newTaskBtn.after(createTaskDomElement(task));
   })
