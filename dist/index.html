@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>TODO List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+    <script type="module" src="main.js" defer></script>
+  </head>
 
-<head>
-  <title>TODO List</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="style.css" rel="stylesheet" />
-  <script type="module" src="main.js" defer></script>
-</head>
-
-<body>
-  <aside>
-    <div class="project-list-header">
-      <h1>Projects</h1>
-      <button type="button" id="new-project">+</button>
-      <div class="insert-new-project-name" style="display: none">
-        <input type="text" name="project-name" class="new-project-name-input" placeholder="New Project Name" />
-        <button type="button" class="confirm-btn">☑</button>
-      </div>
-    </div>
-    <div class="project-list">
-      <button class="all-tasks">Show All Tasks</button>
-    </div>
-  </aside>
-  <main>
-    <h1 class="project-name">Project Name</h1>
-    <div class="task-list">
-      <div class="task open">
-        <span class="title">title</span>
-        <div class="priority-btn-wrapper">
-          <button class="not-urgent-btn"></button>
-          <button class="urgent-btn"></button>
-          <button class="very-urgent-btn"></button>
+  <body>
+    <aside>
+      <div class="project-list-header">
+        <h1>Projects</h1>
+        <button type="button" id="new-project">+</button>
+        <div class="insert-new-project-name" style="display: none">
+          <input
+            type="text"
+            name="project-name"
+            class="new-project-name-input"
+            placeholder="New Project Name"
+          />
+          <button type="button" class="confirm-btn">☑</button>
         </div>
-        <span class="due-date">Due date</span>
-        <span class="description">SUPER SUPER SUPER LONG DESCRIPTION SUPERSUPER SUPER SUPER LONG
-          DESCRIPTION SUPERSUPER SUPER SUPER LONG DESCRIPTION SUPERSUPER SUPER
-          SUPER LONG DESCRIPTION SUPER
-        </span>
       </div>
-      <button type="button" class="new-task-btn">Add new task</button>
-    </div>
-  </main>
-</body>
-
+      <div class="project-list">
+        <button class="all-tasks">Show All Tasks</button>
+      </div>
+    </aside>
+    <main>
+      <h1 class="project-name">Project Name</h1>
+      <div class="task-list">
+        <div class="task open">
+          <span class="title">title</span>
+          <div class="priority-btn-wrapper">
+            <button class="not-urgent-btn"></button>
+            <button class="urgent-btn"></button>
+            <button class="very-urgent-btn"></button>
+          </div>
+          <span class="due-date">Due date</span>
+          <span class="description"
+            >SUPER SUPER SUPER LONG DESCRIPTION SUPERSUPER SUPER SUPER LONG
+            DESCRIPTION SUPERSUPER SUPER SUPER LONG DESCRIPTION SUPERSUPER SUPER
+            SUPER LONG DESCRIPTION SUPER
+          </span>
+        </div>
+        <button type="button" class="new-task-btn">Add new task</button>
+      </div>
+    </main>
+  </body>
 </html>
