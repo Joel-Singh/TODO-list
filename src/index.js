@@ -1,6 +1,6 @@
 import { addProject } from './DOM.js'
 
-function setUpEventListeners() {
+function newProjectEventListeners() {
   const insNewProjName = document.querySelector('.insert-new-project-name')
   const confirmBtn = document.querySelector('.confirm-btn')
   const newProjectBtn = document.querySelector('#new-project')
@@ -16,5 +16,5 @@ function setUpEventListeners() {
   })
 }
 
-setUpEventListeners()
+newProjectEventListeners();
 addProject("balls");
