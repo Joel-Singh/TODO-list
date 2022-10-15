@@ -53,7 +53,7 @@ function createProjectDomElement(projectObject) {
   const projElement = document.createElement('div')
   projElement.innerText = projectObject.name
   projElement.classList.add('project')
-  projElement.setAttribute('id', projElement.id)
+  projElement.setAttribute('id', projectObject.id)
   projElement.addEventListener('click', displayTasksOnDOMEventListener)
   return projElement
 }
