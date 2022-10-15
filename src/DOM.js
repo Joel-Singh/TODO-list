@@ -40,7 +40,7 @@ function createTaskDomElement(taskObject) {
 }
 
 function displayTasksOnDOM(projectObject) {
-  allDomTasks = [...document.querySelectorAll('.task-list > .task')]
+  const allDomTasks = [...document.querySelectorAll('.task-list > .task')]
   allDomTasks.forEach((element) => {
     element.remove()
   })
