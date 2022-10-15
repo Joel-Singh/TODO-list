@@ -45,7 +45,7 @@ function displayTasksOnDOM(projectObject) {
     element.remove()
   })
   projectObject.getTasks().forEach((task) => {
-    newTaskBtn.after(createTaskDomElement(task))
+    newTaskBtn.before(createTaskDomElement(task))
   })
 }
 
