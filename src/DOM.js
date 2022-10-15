@@ -7,6 +7,7 @@ function createTaskDomElement(taskObject) {
   task.classList.add('task')
   task.classList.add('open')
   task.classList.add(taskObject.priority + '-task')
+  task.setAttribute("id", taskObject.id);
 
   const title = document.createElement('span')
   title.classList.add('title')
@@ -50,6 +51,7 @@ function createProjectDomElement(projectObject) {
   const projElement = document.createElement('div')
   projElement.innerText = projectObject.name;
   projElement.classList.add("project");
+  projElement.setAttribute("id", projElement.id);
   return projElement;
 }
 
