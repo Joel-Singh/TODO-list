@@ -45,6 +45,7 @@ function displayTasksOnDom(projectObject) {
 function createProjectDomElement(projectObject) {
   const domElement = document.createElement('div')
   domElement.innerText = projectObject.name;
+  domElement.classList.add("project");
   return domElement;
 }
 
