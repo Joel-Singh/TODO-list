@@ -7,7 +7,7 @@ function createTaskDomElement(taskObject) {
   task.classList.add('task')
   task.classList.add('open')
   task.classList.add(taskObject.priority + '-task')
-  task.setAttribute("id", taskObject.id);
+  task.setAttribute('id', taskObject.id)
 
   const title = document.createElement('span')
   title.classList.add('title')
@@ -38,27 +38,27 @@ function createTaskDomElement(taskObject) {
 }
 
 function displayTasksOnDOM(projectObject) {
-  allDomTasks = [...document.querySelectorAll(".task-list > .task")];
-  allDomTasks.forEach(element => {
-    element.remove();
-  });
+  allDomTasks = [...document.querySelectorAll('.task-list > .task')]
+  allDomTasks.forEach((element) => {
+    element.remove()
+  })
   projectObject.getTasks().forEach((task) => {
-    newTaskBtn.after(createTaskDomElement(task));
+    newTaskBtn.after(createTaskDomElement(task))
   })
 }
 
 function createProjectDomElement(projectObject) {
   const projElement = document.createElement('div')
-  projElement.innerText = projectObject.name;
-  projElement.classList.add("project");
-  projElement.setAttribute("id", projElement.id);
-  return projElement;
+  projElement.innerText = projectObject.name
+  projElement.classList.add('project')
+  projElement.setAttribute('id', projElement.id)
+  return projElement
 }
 
 function addProject(name) {
   const newProj = makeProject(name)
   allProjects.push(newProj)
-  projectListDOM.prepend(createProjectDomElement(newProj));
+  projectListDOM.prepend(createProjectDomElement(newProj))
 }
 
 export { createTaskDomElement, addProject, displayTasksOnDOM }
