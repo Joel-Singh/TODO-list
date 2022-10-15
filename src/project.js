@@ -3,10 +3,7 @@ let id = 0;
 const makeTask = (title, description, dueDate, priority) => {
   id++;
   return {
-    title, description, dueDate, priority, id,
-    createDomElement: function() {
-      return createTaskDomElement(this);
-    }
+    title, description, dueDate, priority, id
   };
 };
 
