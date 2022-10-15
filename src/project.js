@@ -19,9 +19,6 @@ const makeProject = (name) => {
     },
     getTasks: function() {
       return this.taskArray;
-    },
-    displayTasksOnDom: function() {
-      displayTasksOnDom(this);
     }
   }
 }

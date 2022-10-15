@@ -54,4 +54,4 @@ function addProject(name) {
   projectListDOM.prepend(createProjectDomElement(newProj));
 }
 
-export { createTaskDomElement, addProject }
+export { createTaskDomElement, addProject, displayTasksOnDom }
