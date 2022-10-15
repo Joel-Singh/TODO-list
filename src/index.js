@@ -12,9 +12,9 @@ function newProjectEventListeners() {
   confirmBtn.addEventListener('click', () => {
     newProjectBtn.setAttribute('style', 'display: block')
     insNewProjName.setAttribute('style', 'display: none')
-    addProject(document.querySelector(".new-project-name-input").value);
+    addProject(document.querySelector('.new-project-name-input').value)
   })
 }
 
-newProjectEventListeners();
-addProject("balls");
+newProjectEventListeners()
+addProject('balls')
