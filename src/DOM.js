@@ -36,7 +36,7 @@ function createTaskDomElement(taskObject) {
   return task
 }
 
-function displayTasksOnDom(projectObject) {
+function displayTasksOnDOM(projectObject) {
   allDomTasks = [...document.querySelectorAll(".task-list > .task")];
   allDomTasks.forEach(element => {
     element.remove();
@@ -59,4 +59,4 @@ function addProject(name) {
   projectListDOM.prepend(createProjectDomElement(newProj));
 }
 
-export { createTaskDomElement, addProject, displayTasksOnDom }
+export { createTaskDomElement, addProject, displayTasksOnDOM }

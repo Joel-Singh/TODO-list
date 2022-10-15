@@ -1,4 +1,4 @@
-import { createTaskDomElement, displayTasksOnDom } from "./DOM.js"
+import { createTaskDomElement, displayTasksOnDOM } from "./DOM.js"
 let id = 0;
 const makeTask = (title, description, dueDate, priority) => {
   id++;
