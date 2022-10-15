@@ -38,7 +38,7 @@ function createTaskDomElement(taskObject) {
 
 function displayTasksOnDom(projectObject) {
   projectObject.getTasks().forEach((task) => {
-    newTaskBtn.after(createTaskDomElement(projectObject));
+    newTaskBtn.after(createTaskDomElement(task));
   })
 }
 
