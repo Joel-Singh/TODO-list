@@ -42,14 +42,16 @@ function displayTasksOnDom(projectObject) {
   })
 }
 
+function createProjectDomElement(projectObject) {
+  const domElement = document.createElement('div')
+  domElement.innerText = projectObject.name;
+  return domElement;
+}
+
 function addProject(name) {
   const newProj = makeProject(name)
   allProjects.push(newProj)
-  function renderProjOnDom(proj) {
-    const domElement = document.createElement('div')
-    domElement.innerText = newProj.name
-  }
-  projectListDOM.prepend(domElement)
+  projectListDOM.prepend(createProjectDomElement(newProj));
 }
 
 export { createTaskDomElement, addProject }

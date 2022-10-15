@@ -1,4 +1,4 @@
-
+import { addProject } from './DOM.js'
 
 function setUpEventListeners() {
   const insNewProjName = document.querySelector('.insert-new-project-name')
@@ -12,7 +12,9 @@ function setUpEventListeners() {
   confirmBtn.addEventListener('click', () => {
     newProjectBtn.setAttribute('style', 'display: block')
     insNewProjName.setAttribute('style', 'display: none')
+    addProject(document.querySelector(".new-project-name-input").value);
   })
 }
 
 setUpEventListeners()
+addProject("balls");
