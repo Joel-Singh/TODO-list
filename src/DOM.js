@@ -1,5 +1,5 @@
 import { makeProject } from './project.js'
-import { allProjects } from './globalVariables.js'
+import { allProjects, currentlyDisplayedProject, setCurrentlyDisplayedProject } from './globalVariables.js'
 import { displayProjectWithTasksOnDOMEventListener } from './eventListeners.js'
 
 const newTaskBtn = document.querySelector('.new-task-btn')
@@ -48,6 +48,7 @@ function displayProjectWithTasksOnDOM(projectObject) {
     newTaskBtn.before(createTaskDomElement(task))
   })
   document.querySelector('.project-name').innerText = projectObject.name
+  setCurrentlyDisplayedProject(projectObject)
 }
 
 function createProjectDomElement(projectObject) {
