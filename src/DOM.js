@@ -47,6 +47,7 @@ function displayTasksOnDOM(projectObject) {
   projectObject.getTasks().forEach((task) => {
     newTaskBtn.before(createTaskDomElement(task))
   })
+  document.querySelector('.project-name').innerText = projectObject.name
 }
 
 function createProjectDomElement(projectObject) {
