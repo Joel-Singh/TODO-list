@@ -1,6 +1,6 @@
 import { makeProject } from './project.js'
 import { allProjects } from './globalVariables.js'
-import { displayTasksOnDOMEventListener } from './eventListeners.js'
+import { displayProjectWithTasksOnDOMEventListener } from './eventListeners.js'
 
 const newTaskBtn = document.querySelector('.new-task-btn')
 const projectListDOM = document.querySelector('.project-list')
@@ -39,7 +39,7 @@ function createTaskDomElement(taskObject) {
   return task
 }
 
-function displayTasksOnDOM(projectObject) {
+function displayProjectWithTasksOnDOM(projectObject) {
   const allDomTasks = [...document.querySelectorAll('.task-list > .task')]
   allDomTasks.forEach((element) => {
     element.remove()
@@ -55,7 +55,7 @@ function createProjectDomElement(projectObject) {
   projElement.innerText = projectObject.name
   projElement.classList.add('project')
   projElement.setAttribute('id', projectObject.id)
-  projElement.addEventListener('click', displayTasksOnDOMEventListener)
+  projElement.addEventListener('click', displayProjectWithTasksOnDOMEventListener)
   return projElement
 }
 
@@ -65,4 +65,4 @@ function addProject(name) {
   projectListDOM.prepend(createProjectDomElement(newProj))
 }
 
-export { createTaskDomElement, addProject, displayTasksOnDOM }
+export { createTaskDomElement, addProject, displayProjectWithTasksOnDOM }

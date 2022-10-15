@@ -1,8 +1,8 @@
 import { allProjects } from "./globalVariables"
-import { displayTasksOnDOM, addProject } from "./DOM.js"
+import { displayProjectWithTasksOnDOM, addProject } from "./DOM.js"
 
-function displayTasksOnDOMEventListener(e) {
-  displayTasksOnDOM(
+function displayProjectWithTasksOnDOMEventListener(e) {
+  displayProjectWithTasksOnDOM(
     allProjects.find((project) => {
       return project.id == e.target.getAttribute('id')
     })
@@ -25,4 +25,5 @@ function newProjectEventListeners() {
   })
 }
 
-export { displayTasksOnDOMEventListener, newProjectEventListeners }
+
+export { displayProjectWithTasksOnDOMEventListener, newProjectEventListeners }
