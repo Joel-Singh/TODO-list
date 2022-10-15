@@ -66,6 +66,10 @@ aside {
   padding: 30px;
 }
 
+.project {
+  color: white;
+}
+
 main {
   display: flex;
   flex-direction: column;
