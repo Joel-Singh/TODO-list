@@ -47,10 +47,10 @@ function displayTasksOnDOM(projectObject) {
 }
 
 function createProjectDomElement(projectObject) {
-  const domElement = document.createElement('div')
-  domElement.innerText = projectObject.name;
-  domElement.classList.add("project");
-  return domElement;
+  const projElement = document.createElement('div')
+  projElement.innerText = projectObject.name;
+  projElement.classList.add("project");
+  return projElement;
 }
 
 function addProject(name) {
