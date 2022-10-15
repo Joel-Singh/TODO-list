@@ -1,5 +1,6 @@
 import { makeProject } from './project.js'
 import { allProjects } from './globalVariables.js'
+import { displayTasksOnDOMEventListener } from './eventListeners.js'
 
 const newTaskBtn = document.querySelector('.new-task-btn')
 const projectListDOM = document.querySelector('.project-list')
@@ -53,6 +54,7 @@ function createProjectDomElement(projectObject) {
   projElement.innerText = projectObject.name
   projElement.classList.add('project')
   projElement.setAttribute('id', projElement.id)
+  projElement.addEventListener('click', displayTasksOnDOMEventListener)
   return projElement
 }
 
