@@ -1,0 +1,3 @@
+const allProjects = []
+
+export { allProjects }

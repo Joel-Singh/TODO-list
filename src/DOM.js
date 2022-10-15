@@ -1,5 +1,6 @@
 import { makeProject } from './project.js'
-const allProjects = []
+import { allProjects } from './globalVariables.js'
+
 const newTaskBtn = document.querySelector('.new-task-btn')
 const projectListDOM = document.querySelector('.project-list')
 function createTaskDomElement(taskObject) {
