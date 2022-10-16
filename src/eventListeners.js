@@ -27,9 +27,16 @@ function newProjectEventListeners() {
 
 function addNewTaskEventListeners() {
   const newTaskBtn = document.querySelector('.new-task-btn')
+  const newTaskInput = document.querySelector('.new-task-input')
+  const confirmNewTask = document.querySelector('.confirm-new-task')
   newTaskBtn.addEventListener('click', () => {
-    currentlyDisplayedProject.addTask("title", "description", "9/23/42", "not-urgent")
-    displayProjectWithTasksOnDOM(currentlyDisplayedProject)
+    newTaskBtn.setAttribute('style', 'display: none')
+    newTaskInput.setAttribute('style', 'display: grid')
+  })
+
+  confirmNewTask.addEventListener('click', () => {
+    newTaskBtn.setAttribute('style', 'display: grid')
+    newTaskInput.setAttribute('style', 'display: none')
   })
 }
 
