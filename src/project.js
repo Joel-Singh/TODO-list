@@ -5,7 +5,7 @@ let taskID = 0;
 const makeTask = (title, description, dueDate, priority) => {
   taskID++;
   return {
-    title, description, dueDate, priority, id : taskID
+    title, description, dueDate, priority, id: taskID
   };
 };
 
@@ -14,7 +14,7 @@ const makeProject = (name) => {
   projID++;
   return {
     name,
-    id : projID,
+    id: projID,
     taskArray: [],
     addTask: function(title, description, dueDate, priority) {
       this.taskArray.push(makeTask(title, description, dueDate, priority));
