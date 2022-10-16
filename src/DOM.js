@@ -1,5 +1,5 @@
 import { makeProject } from './project.js'
-import { allProjects, currentlyDisplayedProject, setCurrentlyDisplayedProject } from './project.js'
+import { allProjects, setCurrentlyDisplayedProject } from './project.js'
 import { displayProjectWithTasksOnDOMEventListener } from './eventListeners.js'
 
 const newTaskBtn = document.querySelector('.new-task-btn')

@@ -1,4 +1,4 @@
-import { allProjects, currentlyDisplayedProject, getProject } from './project.js'
+import { getProject } from './project.js'
 import { displayProjectWithTasksOnDOM, addProject } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {
