@@ -1,5 +1,6 @@
 import { addProject } from './DOM.js'
-import { newProjectEventListeners } from './eventListeners.js'
+import { addNewTaskEventListener, newProjectEventListeners } from './eventListeners.js'
 
 newProjectEventListeners()
+addNewTaskEventListener()
 addProject('balls')

@@ -1,4 +1,4 @@
-import { allProjects } from "./globalVariables"
+import { allProjects, currentlyDisplayedProject } from './globalVariables'
 import { displayProjectWithTasksOnDOM, addProject } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {
@@ -25,5 +25,12 @@ function newProjectEventListeners() {
   })
 }
 
+function addNewTaskEventListener() {
+  const newTaskBtn = document.querySelector('.new-task-btn')
+  newTaskBtn.addEventListener('click', () => {
+    currentlyDisplayedProject.addTask("title", "description", "9/23/42", "not-urgent")
+    displayProjectWithTasksOnDOM(currentlyDisplayedProject)
+  })
+}
 
-export { displayProjectWithTasksOnDOMEventListener, newProjectEventListeners }
+export { addNewTaskEventListener, displayProjectWithTasksOnDOMEventListener, newProjectEventListeners }
