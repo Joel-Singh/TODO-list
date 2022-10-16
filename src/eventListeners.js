@@ -1,4 +1,4 @@
-import { allProjects, currentlyDisplayedProject } from './globalVariables'
+import { allProjects, currentlyDisplayedProject } from './project.js'
 import { displayProjectWithTasksOnDOM, addProject } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {

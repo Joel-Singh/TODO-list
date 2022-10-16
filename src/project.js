@@ -1,3 +1,11 @@
+const allProjects = []
+let currentlyDisplayedProject = null
+
+// I don't know how else to create a exported variable that is mutable
+function setCurrentlyDisplayedProject(project) {
+  currentlyDisplayedProject = project;
+}
+
 let taskID = 0;
 const makeTask = (title, description, dueDate, priority) => {
   taskID++;
@@ -26,3 +34,4 @@ const makeProject = (name) => {
 }
 
 export { makeProject, makeTask }
+export { allProjects, currentlyDisplayedProject, setCurrentlyDisplayedProject }
