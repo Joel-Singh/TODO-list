@@ -40,4 +40,8 @@ function addNewTaskEventListeners() {
   })
 }
 
-export { addNewTaskEventListeners, displayProjectWithTasksOnDOMEventListener, newProjectEventListeners }
+export {
+  addNewTaskEventListeners,
+  displayProjectWithTasksOnDOMEventListener,
+  newProjectEventListeners,
+}
