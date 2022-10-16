@@ -25,7 +25,7 @@ function newProjectEventListeners() {
   })
 }
 
-function addNewTaskEventListener() {
+function addNewTaskEventListeners() {
   const newTaskBtn = document.querySelector('.new-task-btn')
   newTaskBtn.addEventListener('click', () => {
     currentlyDisplayedProject.addTask("title", "description", "9/23/42", "not-urgent")
@@ -33,4 +33,4 @@ function addNewTaskEventListener() {
   })
 }
 
-export { addNewTaskEventListener, displayProjectWithTasksOnDOMEventListener, newProjectEventListeners }
+export { addNewTaskEventListeners, displayProjectWithTasksOnDOMEventListener, newProjectEventListeners }
