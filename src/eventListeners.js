@@ -1,4 +1,4 @@
-import { getProject } from './project.js'
+import { getProject, getTask } from './project.js'
 import { displayProjectWithTasksOnDOM, addProject } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {
@@ -23,6 +23,16 @@ function newProjectEventListeners() {
   })
 }
 
+function priorityBtnEventListener(priority, taskElement) {
+  taskElement.classList.remove('not-urgent-task')
+  taskElement.classList.remove('urgent-task')
+  taskElement.classList.remove('very-urgent-task')
+  taskElement.classList.add(priority + '-task')
+  if (!taskElement.classList.contains('new-task-input')) {
+     getTask(taskElement.getAttribute('id')).priority = priority
+  }
+}
+
 function addNewTaskEventListeners() {
   const newTaskBtn = document.querySelector('.new-task-btn')
   const newTaskInput = document.querySelector('.new-task-input')
@@ -42,4 +52,5 @@ export {
   addNewTaskEventListeners,
   displayProjectWithTasksOnDOMEventListener,
   newProjectEventListeners,
+  priorityBtnEventListener,
 }

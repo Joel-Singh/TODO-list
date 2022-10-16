@@ -1,6 +1,6 @@
 import { makeProject } from './project.js'
 import { allProjects, setCurrentlyDisplayedProject } from './project.js'
-import { displayProjectWithTasksOnDOMEventListener } from './eventListeners.js'
+import { displayProjectWithTasksOnDOMEventListener, priorityBtnEventListener } from './eventListeners.js'
 
 const newTaskBtn = document.querySelector('.new-task-btn')
 const projectListDOM = document.querySelector('.project-list')
@@ -20,10 +20,15 @@ function createTaskDomElement(taskObject) {
 
   const notUrgentBtn = document.createElement('button')
   notUrgentBtn.classList.add('not-urgent-btn')
+  notUrgentBtn.addEventListener('click', priorityBtnEventListener.bind(null, 'not-urgent', task))
+
   const urgentBtn = document.createElement('button')
   urgentBtn.classList.add('urgent-btn')
+  urgentBtn.addEventListener('click', priorityBtnEventListener.bind(null, 'urgent', task))
+
   const veryUrgentBtn = document.createElement('button')
   veryUrgentBtn.classList.add('very-urgent-btn')
+  veryUrgentBtn.addEventListener('click', priorityBtnEventListener.bind(null, 'very-urgent', task))
 
   btnWrapper.append(notUrgentBtn, urgentBtn, veryUrgentBtn)
 
