@@ -6,6 +6,12 @@ function setCurrentlyDisplayedProject(project) {
   currentlyDisplayedProject = project;
 }
 
+function getProject(id) {
+  return allProjects.find((project) => {
+    return project.id == id
+  })
+}
+
 let taskID = 0;
 const makeTask = (title, description, dueDate, priority) => {
   taskID++;
@@ -33,5 +39,5 @@ const makeProject = (name) => {
   }
 }
 
-export { makeProject, makeTask }
+export { makeProject, makeTask, getProject }
 export { allProjects, currentlyDisplayedProject, setCurrentlyDisplayedProject }

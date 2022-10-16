@@ -1,11 +1,9 @@
-import { allProjects, currentlyDisplayedProject } from './project.js'
+import { allProjects, currentlyDisplayedProject, getProject } from './project.js'
 import { displayProjectWithTasksOnDOM, addProject } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {
   displayProjectWithTasksOnDOM(
-    allProjects.find((project) => {
-      return project.id == e.target.getAttribute('id')
-    })
+    getProject(e.target.getAttribute('id'))
   )
 }
 
