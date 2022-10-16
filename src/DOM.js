@@ -64,6 +64,7 @@ function addProject(name) {
   const newProj = makeProject(name)
   allProjects.push(newProj)
   projectListDOM.prepend(createProjectDomElement(newProj))
+  return newProj
 }
 
 export { createTaskDomElement, addProject, displayProjectWithTasksOnDOM }
