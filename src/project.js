@@ -19,6 +19,9 @@ const makeProject = (name) => {
     addTask: function(title, description, dueDate, priority) {
       this.taskArray.push(makeTask(title, description, dueDate, priority));
     },
+    addTaskFromObject: function(taskObject) {
+      this.taskArray.push(taskObject);
+    },
     removeTask: function(index) {
       this.taskArray.splice(index, 1);
     },
