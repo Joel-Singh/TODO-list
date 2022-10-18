@@ -44,6 +44,10 @@ function createTaskDomElement(taskObject) {
   return task
 }
 
+function displayTask(taskObj) {
+  newTaskBtn.before(createTaskDomElement(taskObj))
+}
+
 function displayProjectWithTasksOnDOM(projectObject) {
   const allDomTasks = [...document.querySelectorAll('.task-list > .task:not(.new-task-input)')]
   allDomTasks.forEach((element) => {
