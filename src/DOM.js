@@ -1,4 +1,4 @@
-import { makeProject } from './project.js'
+import { currentlyDisplayedProject, makeProject, makeTask } from './project.js'
 import { allProjects, setCurrentlyDisplayedProject } from './project.js'
 import { displayProjectWithTasksOnDOMEventListener, priorityBtnEventListener } from './eventListeners.js'
 
@@ -70,6 +70,15 @@ function addProject(name) {
   allProjects.push(newProj)
   projectListDOM.prepend(createProjectDomElement(newProj))
   return newProj
+}
+
+function addTaskToCurrentProject(taskObj) {
+  currentlyDisplayedProject.addTask(taskObj);
+  refreshTasksDOM();
+}
+
+function refreshTasksDOM() {
+  displayProjectWithTasksOnDOM(currentlyDisplayedProject);
 }
 
 export { createTaskDomElement, addProject, displayProjectWithTasksOnDOM }
