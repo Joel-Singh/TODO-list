@@ -48,13 +48,17 @@ function displayTask(taskObj) {
   newTaskBtn.before(createTaskDomElement(taskObj))
 }
 
+function changeTaskListHeader(newHeader) {
+  document.querySelector('.project-name').innerText = newHeader
+}
+
 function displayProjectWithTasksOnDOM(projectObject) {
   const allDomTasks = [...document.querySelectorAll('.task-list > .task:not(.new-task-input)')]
   allDomTasks.forEach(element => element.remove())
   projectObject
     .getTasks()
     .forEach(task => displayTask(task))
-  document.querySelector('.project-name').innerText = projectObject.name
+  changeTaskListHeader(projectObject.name)
   setCurrentlyDisplayedProject(projectObject)
 }
 
