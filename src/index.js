@@ -1,8 +1,9 @@
-import { addProject, displayProjectWithTasksOnDOM } from './DOM.js'
+import { addProject, displayProjectWithTasksOnDOM, displayAllTasks } from './DOM.js'
 import { addNewTaskEventListeners, newProjectEventListeners, priorityBtnEventListener } from './eventListeners.js'
 
 newProjectEventListeners()
 addNewTaskEventListeners()
+
 const newTaskInput = document.querySelector('.new-task-input')
 document.querySelector('.new-task-input .not-urgent-btn')
   .addEventListener('click', priorityBtnEventListener.bind(null, 'not-urgent', newTaskInput))
@@ -10,6 +11,9 @@ document.querySelector('.new-task-input .urgent-btn')
   .addEventListener('click', priorityBtnEventListener.bind(null, 'urgent', newTaskInput))
 document.querySelector('.new-task-input .very-urgent-btn')
   .addEventListener('click', priorityBtnEventListener.bind(null, 'very-urgent', newTaskInput))
+
+document.querySelector('.all-tasks')
+  .addEventListener('click', displayAllTasks)
 
 const defaultProject = addProject('Default Project')
 defaultProject.addTask(`Wash the dishes`, `The dishes haven't been washed and the damn roommates won't do em`, `10/15/2022`, `not-urgent`)
