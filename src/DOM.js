@@ -50,10 +50,10 @@ function displayTask(taskObj) {
 
 function displayProjectWithTasksOnDOM(projectObject) {
   const allDomTasks = [...document.querySelectorAll('.task-list > .task:not(.new-task-input)')]
-  allDomTasks.forEach((element) => {
-    element.remove()
-  })
-  projectObject.getTasks().forEach(task => displayTask(task))
+  allDomTasks.forEach(element => element.remove())
+  projectObject
+    .getTasks()
+    .forEach(task => displayTask(task))
   document.querySelector('.project-name').innerText = projectObject.name
   setCurrentlyDisplayedProject(projectObject)
 }
