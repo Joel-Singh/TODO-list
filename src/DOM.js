@@ -1,4 +1,4 @@
-import { currentlyDisplayedProject, makeProject, makeTask } from './project.js'
+import { currentlyDisplayedProject, getAllTasks, makeProject, makeTask } from './project.js'
 import { allProjects, setCurrentlyDisplayedProject } from './project.js'
 import { displayProjectWithTasksOnDOMEventListener, priorityBtnEventListener } from './eventListeners.js'
 
@@ -56,6 +56,7 @@ function removeDOMElementsInTaskList() {
   const allDomTasks = [...document.querySelectorAll('.task-list > .task:not(.new-task-input)')]
   allDomTasks.forEach(element => element.remove())
 }
+
 function displayProjectWithTasksOnDOM(projectObject) {
   removeDOMElementsInTaskList()
   projectObject
@@ -90,4 +91,10 @@ function refreshTasksDOM() {
   displayProjectWithTasksOnDOM(currentlyDisplayedProject);
 }
 
-export { createTaskDomElement, addProject, displayProjectWithTasksOnDOM, addTaskToCurrentProject }
+function displayAllTasks() {
+  removeDOMElementsInTaskList()
+  changeTaskListHeader('All Tasks')
+  getAllTasks().forEach(task => displayTask(task))
+}
+
+export { createTaskDomElement, addProject, displayProjectWithTasksOnDOM, addTaskToCurrentProject, displayAllTasks }

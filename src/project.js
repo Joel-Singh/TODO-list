@@ -53,4 +53,4 @@ function getAllTasks() {
 const getTask = id => getAllTasks().find(task => task.id == id)
 
 export { makeProject, makeTask, getProject, getTask }
-export { allProjects, currentlyDisplayedProject, setCurrentlyDisplayedProject }
+export { allProjects, currentlyDisplayedProject, setCurrentlyDisplayedProject, getAllTasks }
