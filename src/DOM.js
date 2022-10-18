@@ -53,9 +53,7 @@ function displayProjectWithTasksOnDOM(projectObject) {
   allDomTasks.forEach((element) => {
     element.remove()
   })
-  projectObject.getTasks().forEach((task) => {
-    newTaskBtn.before(createTaskDomElement(task))
-  })
+  projectObject.getTasks().forEach(task => displayTask(task))
   document.querySelector('.project-name').innerText = projectObject.name
   setCurrentlyDisplayedProject(projectObject)
 }
