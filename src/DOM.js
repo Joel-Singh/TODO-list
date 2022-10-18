@@ -73,7 +73,7 @@ function addProject(name) {
 }
 
 function addTaskToCurrentProject(taskObj) {
-  currentlyDisplayedProject.addTask(taskObj);
+  currentlyDisplayedProject.addTaskFromObject(taskObj);
   refreshTasksDOM();
 }
 
@@ -81,4 +81,4 @@ function refreshTasksDOM() {
   displayProjectWithTasksOnDOM(currentlyDisplayedProject);
 }
 
-export { createTaskDomElement, addProject, displayProjectWithTasksOnDOM }
+export { createTaskDomElement, addProject, displayProjectWithTasksOnDOM, addTaskToCurrentProject }

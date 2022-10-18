@@ -2,7 +2,7 @@ import { getProject, getTask, makeTask } from './project.js'
 import {
   displayProjectWithTasksOnDOM,
   addProject,
-  createTaskDomElement,
+  addTaskToCurrentProject,
 } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {
@@ -47,6 +47,23 @@ function addNewTaskEventListeners() {
   confirmNewTask.addEventListener('click', () => {
     newTaskBtn.setAttribute('style', 'display: grid')
     newTaskInput.setAttribute('style', 'display: none')
+    const titleValue = document.querySelector('.new-task-input .title').value
+    const descriptionValue = document.querySelector('.new-task-input .description').value
+    const dueDateValue = document.querySelector(
+      '.new-task-input input[type="date"]'
+    ).value
+
+    let priorityValue
+    if (newTaskInput.classList.contains('not-urgent')) {
+      priorityValue = 'not-urgent'
+    } else if (newTaskInput.classList.contains('urgent')) {
+      priorityValue = 'urgent'
+    } else if (newTaskInput.classList.contains('very-urgent')) {
+      priorityValue = 'very-urgent'
+    }
+    addTaskToCurrentProject(
+      makeTask(titleValue, descriptionValue, dueDateValue, priorityValue)
+    )
   })
 }
 
