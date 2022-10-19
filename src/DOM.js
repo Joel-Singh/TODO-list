@@ -52,6 +52,10 @@ function changeTaskListHeader(newHeader) {
   document.querySelector('.project-name').innerText = newHeader
 }
 
+function removeDOMElementsInTaskList() {
+  const allDomTasks = [...document.querySelectorAll('.task-list > .task:not(.new-task-input)')]
+  allDomTasks.forEach(element => element.remove())
+}
 function displayProjectWithTasksOnDOM(projectObject) {
   const allDomTasks = [...document.querySelectorAll('.task-list > .task:not(.new-task-input)')]
   allDomTasks.forEach(element => element.remove())
