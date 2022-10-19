@@ -1,6 +1,14 @@
-import { currentlyDisplayedProject, getAllTasks, makeProject, makeTask } from './project.js'
+import {
+  currentlyDisplayedProject,
+  getAllTasks,
+  makeProject,
+  makeTask,
+} from './project.js'
 import { allProjects, setCurrentlyDisplayedProject } from './project.js'
-import { displayProjectWithTasksOnDOMEventListener, priorityBtnEventListener } from './eventListeners.js'
+import {
+  displayProjectWithTasksOnDOMEventListener,
+  priorityBtnEventListener,
+} from './eventListeners.js'
 
 const newTaskBtn = document.querySelector('.new-task-btn')
 const projectListDOM = document.querySelector('.project-list')
@@ -20,15 +28,24 @@ function createTaskDomElement(taskObject) {
 
   const notUrgentBtn = document.createElement('button')
   notUrgentBtn.classList.add('not-urgent-btn')
-  notUrgentBtn.addEventListener('click', priorityBtnEventListener.bind(null, 'not-urgent', task))
+  notUrgentBtn.addEventListener(
+    'click',
+    priorityBtnEventListener.bind(null, 'not-urgent', task)
+  )
 
   const urgentBtn = document.createElement('button')
   urgentBtn.classList.add('urgent-btn')
-  urgentBtn.addEventListener('click', priorityBtnEventListener.bind(null, 'urgent', task))
+  urgentBtn.addEventListener(
+    'click',
+    priorityBtnEventListener.bind(null, 'urgent', task)
+  )
 
   const veryUrgentBtn = document.createElement('button')
   veryUrgentBtn.classList.add('very-urgent-btn')
-  veryUrgentBtn.addEventListener('click', priorityBtnEventListener.bind(null, 'very-urgent', task))
+  veryUrgentBtn.addEventListener(
+    'click',
+    priorityBtnEventListener.bind(null, 'very-urgent', task)
+  )
 
   btnWrapper.append(notUrgentBtn, urgentBtn, veryUrgentBtn)
 
@@ -53,15 +70,15 @@ function changeTaskListHeader(newHeader) {
 }
 
 function removeDOMElementsInTaskList() {
-  const allDomTasks = [...document.querySelectorAll('.task-list > .task:not(.new-task-input)')]
-  allDomTasks.forEach(element => element.remove())
+  const allDomTasks = [
+    ...document.querySelectorAll('.task-list > .task:not(.new-task-input)'),
+  ]
+  allDomTasks.forEach((element) => element.remove())
 }
 
 function displayProjectWithTasksOnDOM(projectObject) {
   removeDOMElementsInTaskList()
-  projectObject
-    .getTasks()
-    .forEach(task => displayTask(task))
+  projectObject.getTasks().forEach((task) => displayTask(task))
   changeTaskListHeader(projectObject.name)
   setCurrentlyDisplayedProject(projectObject)
 }
@@ -71,7 +88,10 @@ function createProjectDomElement(projectObject) {
   projElement.innerText = projectObject.name
   projElement.classList.add('project')
   projElement.setAttribute('id', projectObject.id)
-  projElement.addEventListener('click', displayProjectWithTasksOnDOMEventListener)
+  projElement.addEventListener(
+    'click',
+    displayProjectWithTasksOnDOMEventListener
+  )
   return projElement
 }
 
@@ -83,18 +103,24 @@ function addProject(name) {
 }
 
 function addTaskToCurrentProject(taskObj) {
-  currentlyDisplayedProject.addTaskFromObject(taskObj);
-  refreshTasksDOM();
+  currentlyDisplayedProject.addTaskFromObject(taskObj)
+  refreshTasksDOM()
 }
 
 function refreshTasksDOM() {
-  displayProjectWithTasksOnDOM(currentlyDisplayedProject);
+  displayProjectWithTasksOnDOM(currentlyDisplayedProject)
 }
 
 function displayAllTasks() {
   removeDOMElementsInTaskList()
   changeTaskListHeader('All Tasks')
-  getAllTasks().forEach(task => displayTask(task))
+  getAllTasks().forEach((task) => displayTask(task))
 }
 
-export { createTaskDomElement, addProject, displayProjectWithTasksOnDOM, addTaskToCurrentProject, displayAllTasks }
+export {
+  createTaskDomElement,
+  addProject,
+  displayProjectWithTasksOnDOM,
+  addTaskToCurrentProject,
+  displayAllTasks,
+}
