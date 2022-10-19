@@ -57,8 +57,7 @@ function removeDOMElementsInTaskList() {
   allDomTasks.forEach(element => element.remove())
 }
 function displayProjectWithTasksOnDOM(projectObject) {
-  const allDomTasks = [...document.querySelectorAll('.task-list > .task:not(.new-task-input)')]
-  allDomTasks.forEach(element => element.remove())
+  removeDOMElementsInTaskList()
   projectObject
     .getTasks()
     .forEach(task => displayTask(task))
