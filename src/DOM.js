@@ -102,6 +102,13 @@ function addProject(name) {
   return newProj
 }
 
+function deleteProject(id) {
+  document.querySelector(`.project[id="${id}"]`).remove
+  allProjects.splice(
+    allProjects.findIndex(project => project.id == id)
+    , 1)
+}
+
 function addTaskToCurrentProject(taskObj) {
   currentlyDisplayedProject.addTaskFromObject(taskObj)
   refreshTasksDOM()
@@ -123,4 +130,5 @@ export {
   displayProjectWithTasksOnDOM,
   addTaskToCurrentProject,
   displayAllTasks,
+  deleteProject
 }
