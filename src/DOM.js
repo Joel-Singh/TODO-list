@@ -84,15 +84,28 @@ function displayProjectWithTasksOnDOM(projectObject) {
 }
 
 function createProjectDomElement(projectObject) {
-  const projElement = document.createElement('div')
+  const wrapper = document.createElement('div')
+  wrapper.classList.add('project')
+
+  const projElement = document.createElement('span')
   projElement.innerText = projectObject.name
-  projElement.classList.add('project')
-  projElement.setAttribute('id', projectObject.id)
   projElement.addEventListener(
     'click',
     displayProjectWithTasksOnDOMEventListener
   )
-  return projElement
+
+  const removeProjBtn = document.createElement('button')
+  removeProjBtn.setAttribute('type', 'button')
+  removeProjBtn.addEventListener('click', (e) => deleteProject(e.target.getAttribute('id')))
+  removeProjBtn.innerText = 'R'
+
+  let elementArr = [wrapper, projElement, removeProjBtn]
+    elementArr.forEach(
+      e => e.setAttribute('id', projectObject.id)
+    );
+
+  wrapper.append(projElement, removeProjBtn)
+  return wrapper
 }
 
 function addProject(name) {
@@ -103,7 +116,7 @@ function addProject(name) {
 }
 
 function deleteProject(id) {
-  document.querySelector(`.project[id="${id}"]`).remove
+  document.querySelector(`.project[id="${id}"]`).remove()
   allProjects.splice(
     allProjects.findIndex(project => project.id == id)
     , 1)
