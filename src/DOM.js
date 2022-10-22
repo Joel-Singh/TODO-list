@@ -57,7 +57,12 @@ function createTaskDomElement(taskObject) {
   description.classList.add('description')
   description.innerText = taskObject.description
 
-  task.append(title, btnWrapper, dueDate, description)
+  const confirmEditBtn = document.createElement('button')
+  confirmEditBtn.classList.add('confirm-edit-btn')
+  confirmEditBtn.setAttribute('type', 'button')
+  confirmEditBtn.setAttribute('style', 'display: none')
+
+  task.append(title, btnWrapper, dueDate, description, confirmEditBtn)
   return task
 }
 
