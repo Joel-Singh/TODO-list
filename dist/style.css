@@ -98,7 +98,8 @@ main {
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     'name priority-btn-wrapper due-date'
-    'description description description';
+    'description description description'
+    'confirm-edit-btn confirm-edit-btn confirm-edit-btn';
   justify-items: center;
   align-items: center;
 }
@@ -136,6 +137,10 @@ main {
   margin: 0 auto;
   grid-area: description;
   text-align: center;
+}
+
+.confirm-edit-btn {
+  grid-area: confirm-edit-btn;
 }
 
 .not-urgent-btn {
