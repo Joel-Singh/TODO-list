@@ -73,7 +73,8 @@ function createTaskDomElement(taskObject) {
   return task
 }
 
-function convertTaskElementToEditable(UneditableTaskElementId) {
+function convertTaskElementToEditable(uneditableTaskElement) {
+  let UneditableTaskElementId = uneditableTaskElement.getAttribute("data-task-id")
   let task = `.task[data-task-id="${UneditableTaskElementId}"]`
   let title = document.querySelector(`${task} .title`)
   let dueDate = document.querySelector(`${task} .due-date`)
@@ -101,7 +102,8 @@ function convertTaskElementToEditable(UneditableTaskElementId) {
   confirmEditBtn.setAttribute('style', '')
 }
 
-function convertTaskElementToUneditable(editableTaskElementId) {
+function convertTaskElementToUneditable(editableTaskElement) {
+  let editableTaskElementId = editableTaskElement.getAttribute('data-task-id')
   let task = `.task[data-task-id="${editableTaskElementId}"]`
   let title = document.querySelector(`${task} .title`)
   let dueDate = document.querySelector(`${task} .due-date`)
