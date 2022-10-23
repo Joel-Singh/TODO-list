@@ -3,6 +3,7 @@ import {
   displayProjectWithTasksOnDOM,
   addProject,
   addTaskToCurrentProject,
+  convertTaskElementToUneditable,
 } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {
@@ -71,9 +72,29 @@ function addNewTaskEventListeners() {
   })
 }
 
+function confirmEditEventListener(e) {
+  let id = e.target.getAttribute('data-task-id')
+  let objectTask = getTask(id)
+  let taskSelectorString = `.task[data-task-id="${id}"]`
+  let domTask = document.querySelector(taskSelectorString)
+
+  let title = document.querySelector(`${taskSelectorString} .title`)
+  let dueDate = document.querySelector(`${taskSelectorString} .due-date`)
+  let description = document.querySelector(`${taskSelectorString} .description`)
+  let confirmEditBtn = document.querySelector(`${taskSelectorString} .confirm-edit-btn`)
+
+  objectTask.title = title.value
+  objectTask.description = description.value
+  objectTask.dueDate = dueDate.value
+  objectTask.priority = getPriorityFromDomTask(domTask)
+
+  convertTaskElementToUneditable(domTask)
+}
+
 export {
   addNewTaskEventListeners,
   displayProjectWithTasksOnDOMEventListener,
   newProjectEventListeners,
   priorityBtnEventListener,
+  confirmEditEventListener,
 }
