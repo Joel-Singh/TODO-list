@@ -61,6 +61,7 @@ function createTaskDomElement(taskObject) {
   confirmEditBtn.classList.add('confirm-edit-btn')
   confirmEditBtn.setAttribute('type', 'button')
   confirmEditBtn.setAttribute('style', 'display: none')
+  confirmEditBtn.innerText = 'Confirm'
 
   task.append(title, btnWrapper, dueDate, description, confirmEditBtn)
   return task
