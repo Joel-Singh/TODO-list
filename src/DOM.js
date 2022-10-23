@@ -17,7 +17,7 @@ function createTaskDomElement(taskObject) {
   task.classList.add('task')
   task.classList.add('open')
   task.classList.add(taskObject.priority + '-task')
-  task.setAttribute('id', taskObject.id)
+  task.setAttribute('data-task-id', taskObject.id)
 
   const title = document.createElement('span')
   title.classList.add('title')
@@ -68,7 +68,7 @@ function createTaskDomElement(taskObject) {
 }
 
 function convertTaskElementToEditable(UneditableTaskElementId) {
-  let task = `.task[id="${UneditableTaskElementId}"]`
+  let task = `.task[data-task-id="${UneditableTaskElementId}"]`
   let title = document.querySelector(`${task} .title`)
   let dueDate = document.querySelector(`${task} .due-date`)
   let description = document.querySelector(`${task} .description`)
@@ -96,7 +96,7 @@ function convertTaskElementToEditable(UneditableTaskElementId) {
 }
 
 function convertTaskElementToUneditable(editableTaskElementId) {
-  let task = `.task[id="${editableTaskElementId}"]`
+  let task = `.task[data-task-id="${editableTaskElementId}"]`
   let title = document.querySelector(`${task} .title`)
   let dueDate = document.querySelector(`${task} .due-date`)
   let description = document.querySelector(`${task} .description`)
@@ -151,12 +151,12 @@ function createProjectDomElement(projectObject) {
 
   const removeProjBtn = document.createElement('button')
   removeProjBtn.setAttribute('type', 'button')
-  removeProjBtn.addEventListener('click', (e) => deleteProject(e.target.getAttribute('id')))
+  removeProjBtn.addEventListener('click', (e) => deleteProject(e.target.getAttribute('data-project-id')))
   removeProjBtn.innerText = 'R'
 
   let elementArr = [wrapper, projElement, removeProjBtn]
     elementArr.forEach(
-      e => e.setAttribute('id', projectObject.id)
+      e => e.setAttribute('data-project-id', projectObject.id)
     );
 
   wrapper.append(projElement, removeProjBtn)
@@ -171,7 +171,7 @@ function addProject(name) {
 }
 
 function deleteProject(id) {
-  document.querySelector(`.project[id="${id}"]`).remove()
+  document.querySelector(`.project[data-project-id="${id}"]`).remove()
   allProjects.splice(
     allProjects.findIndex(project => project.id == id)
     , 1)
