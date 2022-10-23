@@ -35,6 +35,16 @@ function priorityBtnEventListener(priority, taskElement) {
   }
 }
 
+function getPriorityFromDomTask(domTask) {
+    if (domTask.classList.contains('not-urgent-task')) {
+      return 'not-urgent'
+    } else if (domTask.classList.contains('urgent-task')) {
+      return 'urgent'
+    } else if (domTask.classList.contains('very-urgent-task')) {
+      return 'very-urgent'
+    }
+}
+
 function addNewTaskEventListeners() {
   const newTaskBtn = document.querySelector('.new-task-btn')
   const newTaskInput = document.querySelector('.new-task-input')
@@ -53,14 +63,8 @@ function addNewTaskEventListeners() {
       '.new-task-input input[type="date"]'
     ).value
 
-    let priorityValue
-    if (newTaskInput.classList.contains('not-urgent-task')) {
-      priorityValue = 'not-urgent'
-    } else if (newTaskInput.classList.contains('urgent-task')) {
-      priorityValue = 'urgent'
-    } else if (newTaskInput.classList.contains('very-urgent-task')) {
-      priorityValue = 'very-urgent'
-    }
+    let priorityValue = getPriorityFromDomTask(newTaskInput)
+
     addTaskToCurrentProject(
       makeTask(titleValue, descriptionValue, dueDateValue, priorityValue)
     )
