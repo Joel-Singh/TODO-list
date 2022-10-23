@@ -17,7 +17,6 @@ function createTaskDomElement(taskObject) {
   task.classList.add('task')
   task.classList.add('open')
   task.classList.add(taskObject.priority + '-task')
-  task.setAttribute('data-task-id', taskObject.id)
 
   const title = document.createElement('span')
   title.classList.add('title')
@@ -64,6 +63,11 @@ function createTaskDomElement(taskObject) {
   confirmEditBtn.innerText = 'Confirm'
 
   const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn]
+
+  allElements.forEach(element => {
+    element.setAttribute('data-task-id', taskObject.id)
+  })
+  task.setAttribute('data-task-id', taskObject.id)
 
   task.append(...allElements)
   return task
