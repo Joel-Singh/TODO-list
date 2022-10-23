@@ -54,11 +54,11 @@ function addNewTaskEventListeners() {
     ).value
 
     let priorityValue
-    if (newTaskInput.classList.contains('not-urgent')) {
+    if (newTaskInput.classList.contains('not-urgent-task')) {
       priorityValue = 'not-urgent'
-    } else if (newTaskInput.classList.contains('urgent')) {
+    } else if (newTaskInput.classList.contains('urgent-task')) {
       priorityValue = 'urgent'
-    } else if (newTaskInput.classList.contains('very-urgent')) {
+    } else if (newTaskInput.classList.contains('very-urgent-task')) {
       priorityValue = 'very-urgent'
     }
     addTaskToCurrentProject(
