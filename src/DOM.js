@@ -67,6 +67,34 @@ function createTaskDomElement(taskObject) {
   return task
 }
 
+function convertTaskElementToEditable(UneditableTaskElementId) {
+  let task = `.task[id="${UneditableTaskElementId}"]`
+  let title = document.querySelector(`${task} .title`)
+  let dueDate = document.querySelector(`${task} .due-date`)
+  let description = document.querySelector(`${task} .description`)
+  let confirmEditBtn = document.querySelector(`${task} .confirm-edit-btn`)
+
+  let editableTitle = document.createElement('input')
+  editableTitle.setAttribute('type', 'text')
+  editableTitle.setAttribute('value', title.textContent)
+  editableTitle.setAttribute('class', title.getAttribute('class'))
+
+  let editableDueDate = document.createElement('input')
+  editableDueDate.setAttribute('type', 'date')
+  editableDueDate.value = dueDate.textContent
+  editableDueDate.setAttribute('class', dueDate.getAttribute('class'))
+
+  let editableDescription = document.createElement('textarea')
+  editableDescription.value = description.textContent
+  editableDescription.setAttribute('class', description.getAttribute('class'))
+
+  title      .replaceWith(editableTitle)
+  dueDate    .replaceWith(editableDueDate)
+  description.replaceWith(editableDescription)
+
+  confirmEditBtn.setAttribute('style', '')
+}
+
 function displayTask(taskObj) {
   newTaskBtn.before(createTaskDomElement(taskObj))
 }
