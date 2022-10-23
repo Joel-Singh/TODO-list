@@ -95,6 +95,27 @@ function convertTaskElementToEditable(UneditableTaskElementId) {
   confirmEditBtn.setAttribute('style', '')
 }
 
+function convertTaskElementToUneditable(editableTaskElementId) {
+  let task = `.task[id="${editableTaskElementId}"]`
+  let title = document.querySelector(`${task} .title`)
+  let dueDate = document.querySelector(`${task} .due-date`)
+  let description = document.querySelector(`${task} .description`)
+  let confirmEditBtn = document.querySelector(`${task} .confirm-edit-btn`)
+
+  function returnDifferentTagButSameTextAndClass(newTag, oldElement) {
+    let newElement = document.createElement(newTag)
+    newElement.textContent = oldElement.value
+    newElement.setAttribute('class', oldElement.getAttribute('class'))
+    return newElement
+  }
+
+  title      .replaceWith(returnDifferentTagButSameTextAndClass('span', title))
+  dueDate    .replaceWith(returnDifferentTagButSameTextAndClass('span', dueDate))
+  description.replaceWith(returnDifferentTagButSameTextAndClass('span', description))
+
+  confirmEditBtn.setAttribute('style', 'display: none')
+}
+
 function displayTask(taskObj) {
   newTaskBtn.before(createTaskDomElement(taskObj))
 }
