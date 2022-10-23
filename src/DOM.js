@@ -3,8 +3,10 @@ import {
   getAllTasks,
   makeProject,
   makeTask,
+  allProjects,
+  setCurrentlyDisplayedProject,
 } from './project.js'
-import { allProjects, setCurrentlyDisplayedProject } from './project.js'
+
 import {
   displayProjectWithTasksOnDOMEventListener,
   priorityBtnEventListener,
