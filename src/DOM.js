@@ -204,5 +204,7 @@ export {
   displayProjectWithTasksOnDOM,
   addTaskToCurrentProject,
   displayAllTasks,
-  deleteProject
+  deleteProject,
+  convertTaskElementToEditable,
+  convertTaskElementToUneditable,
 }
