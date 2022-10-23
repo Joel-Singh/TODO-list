@@ -63,7 +63,9 @@ function createTaskDomElement(taskObject) {
   confirmEditBtn.setAttribute('style', 'display: none')
   confirmEditBtn.innerText = 'Confirm'
 
-  task.append(title, btnWrapper, dueDate, description, confirmEditBtn)
+  const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn]
+
+  task.append(...allElements)
   return task
 }
 
