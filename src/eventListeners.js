@@ -4,6 +4,7 @@ import {
   addProject,
   addTaskToCurrentProject,
   convertTaskElementToUneditable,
+  convertTaskElementToEditable,
 } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {
@@ -91,10 +92,25 @@ function confirmEditEventListener(e) {
   convertTaskElementToUneditable(domTask)
 }
 
+const convertTaskElementToEditableEventListener = (event) => {
+  if (
+    event.target.classList.contains('task') ||
+    event.target.classList.contains('title') ||
+    event.target.classList.contains('due-date') ||
+    event.target.classList.contains('description')
+  )
+  {
+    const domTask = event.target.closest('.task')
+    convertTaskElementToEditable(domTask)
+    domTask.removeEventListener('click', convertTaskElementToEditableEventListener)
+  }
+}
+
 export {
   addNewTaskEventListeners,
   displayProjectWithTasksOnDOMEventListener,
   newProjectEventListeners,
   priorityBtnEventListener,
   confirmEditEventListener,
+  convertTaskElementToEditableEventListener,
 }
