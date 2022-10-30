@@ -92,6 +92,7 @@ function convertTaskElementToEditable(uneditableTaskElement) {
   let dueDate = document.querySelector(`${task} .due-date`)
   let description = document.querySelector(`${task} .description`)
   let confirmEditBtn = document.querySelector(`${task} .confirm-edit-btn`)
+  let deleteTaskBtn = document.querySelector(`${task} .delete-task-btn`)
 
   let editableTitle = document.createElement('input')
   editableTitle.setAttribute('type', 'text')
@@ -112,6 +113,7 @@ function convertTaskElementToEditable(uneditableTaskElement) {
   description.replaceWith(editableDescription)
 
   confirmEditBtn.setAttribute('style', 'display: block')
+  deleteTaskBtn.setAttribute('style', 'display: block')
   uneditableTaskElement.removeEventListener(
     'click',
     convertTaskElementToEditableEventListener
