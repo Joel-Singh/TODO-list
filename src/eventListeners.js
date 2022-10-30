@@ -90,6 +90,7 @@ function confirmEditEventListener(e) {
   objectTask.priority = getPriorityFromDomTask(domTask)
 
   convertTaskElementToUneditable(domTask)
+  domTask.addEventListener('click', convertTaskElementToEditableEventListener)
 }
 
 const convertTaskElementToEditableEventListener = (event) => {

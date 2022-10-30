@@ -11,6 +11,7 @@ import {
   displayProjectWithTasksOnDOMEventListener,
   priorityBtnEventListener,
   confirmEditEventListener,
+  convertTaskElementToEditableEventListener,
 } from './eventListeners.js'
 
 const newTaskBtn = document.querySelector('.new-task-btn')
@@ -20,6 +21,7 @@ function createTaskDomElement(taskObject) {
   task.classList.add('task')
   task.classList.add('open')
   task.classList.add(taskObject.priority + '-task')
+  task.addEventListener('click', convertTaskElementToEditableEventListener)
 
   const title = document.createElement('span')
   title.classList.add('title')
@@ -104,6 +106,7 @@ function convertTaskElementToEditable(uneditableTaskElement) {
   description.replaceWith(editableDescription)
 
   confirmEditBtn.setAttribute('style', '')
+  uneditableTaskElement.removeEventListener('click', convertTaskElementToEditableEventListener)
 }
 
 function convertTaskElementToUneditable(editableTaskElement) {
