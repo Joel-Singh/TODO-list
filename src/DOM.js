@@ -70,7 +70,7 @@ function createTaskDomElement(taskObject) {
 
   const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn]
 
-  allElements.forEach(element => {
+  allElements.forEach((element) => {
     element.setAttribute('data-task-id', taskObject.id)
   })
   task.setAttribute('data-task-id', taskObject.id)
@@ -80,7 +80,8 @@ function createTaskDomElement(taskObject) {
 }
 
 function convertTaskElementToEditable(uneditableTaskElement) {
-  let UneditableTaskElementId = uneditableTaskElement.getAttribute("data-task-id")
+  let UneditableTaskElementId =
+    uneditableTaskElement.getAttribute('data-task-id')
   let task = `.task[data-task-id="${UneditableTaskElementId}"]`
   let title = document.querySelector(`${task} .title`)
   let dueDate = document.querySelector(`${task} .due-date`)
@@ -101,12 +102,15 @@ function convertTaskElementToEditable(uneditableTaskElement) {
   editableDescription.value = description.textContent
   editableDescription.setAttribute('class', description.getAttribute('class'))
 
-  title      .replaceWith(editableTitle)
-  dueDate    .replaceWith(editableDueDate)
+  title.replaceWith(editableTitle)
+  dueDate.replaceWith(editableDueDate)
   description.replaceWith(editableDescription)
 
   confirmEditBtn.setAttribute('style', '')
-  uneditableTaskElement.removeEventListener('click', convertTaskElementToEditableEventListener)
+  uneditableTaskElement.removeEventListener(
+    'click',
+    convertTaskElementToEditableEventListener
+  )
 }
 
 function convertTaskElementToUneditable(editableTaskElement) {
@@ -124,9 +128,11 @@ function convertTaskElementToUneditable(editableTaskElement) {
     return newElement
   }
 
-  title      .replaceWith(returnDifferentTagButSameTextAndClass('span', title))
-  dueDate    .replaceWith(returnDifferentTagButSameTextAndClass('span', dueDate))
-  description.replaceWith(returnDifferentTagButSameTextAndClass('span', description))
+  title.replaceWith(returnDifferentTagButSameTextAndClass('span', title))
+  dueDate.replaceWith(returnDifferentTagButSameTextAndClass('span', dueDate))
+  description.replaceWith(
+    returnDifferentTagButSameTextAndClass('span', description)
+  )
 
   confirmEditBtn.setAttribute('style', 'display: none')
 }
@@ -166,13 +172,13 @@ function createProjectDomElement(projectObject) {
 
   const removeProjBtn = document.createElement('button')
   removeProjBtn.setAttribute('type', 'button')
-  removeProjBtn.addEventListener('click', (e) => deleteProject(e.target.getAttribute('data-project-id')))
+  removeProjBtn.addEventListener('click', (e) =>
+    deleteProject(e.target.getAttribute('data-project-id'))
+  )
   removeProjBtn.innerText = 'R'
 
   let elementArr = [wrapper, projElement, removeProjBtn]
-    elementArr.forEach(
-      e => e.setAttribute('data-project-id', projectObject.id)
-    );
+  elementArr.forEach((e) => e.setAttribute('data-project-id', projectObject.id))
 
   wrapper.append(projElement, removeProjBtn)
   return wrapper
@@ -188,8 +194,9 @@ function addProject(name) {
 function deleteProject(id) {
   document.querySelector(`.project[data-project-id="${id}"]`).remove()
   allProjects.splice(
-    allProjects.findIndex(project => project.id == id)
-    , 1)
+    allProjects.findIndex((project) => project.id == id),
+    1
+  )
 }
 
 function addTaskToCurrentProject(taskObj) {

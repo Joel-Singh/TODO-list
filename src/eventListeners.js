@@ -8,7 +8,9 @@ import {
 } from './DOM.js'
 
 function displayProjectWithTasksOnDOMEventListener(e) {
-  displayProjectWithTasksOnDOM(getProject(e.target.getAttribute('data-project-id')))
+  displayProjectWithTasksOnDOM(
+    getProject(e.target.getAttribute('data-project-id'))
+  )
 }
 
 function newProjectEventListeners() {
@@ -38,13 +40,13 @@ function priorityBtnEventListener(priority, taskElement) {
 }
 
 function getPriorityFromDomTask(domTask) {
-    if (domTask.classList.contains('not-urgent-task')) {
-      return 'not-urgent'
-    } else if (domTask.classList.contains('urgent-task')) {
-      return 'urgent'
-    } else if (domTask.classList.contains('very-urgent-task')) {
-      return 'very-urgent'
-    }
+  if (domTask.classList.contains('not-urgent-task')) {
+    return 'not-urgent'
+  } else if (domTask.classList.contains('urgent-task')) {
+    return 'urgent'
+  } else if (domTask.classList.contains('very-urgent-task')) {
+    return 'very-urgent'
+  }
 }
 
 function addNewTaskEventListeners() {
@@ -60,7 +62,9 @@ function addNewTaskEventListeners() {
     newTaskBtn.setAttribute('style', 'display: grid')
     newTaskInput.setAttribute('style', 'display: none')
     const titleValue = document.querySelector('.new-task-input .title').value
-    const descriptionValue = document.querySelector('.new-task-input .description').value
+    const descriptionValue = document.querySelector(
+      '.new-task-input .description'
+    ).value
     const dueDateValue = document.querySelector(
       '.new-task-input input[type="date"]'
     ).value
@@ -82,7 +86,9 @@ function confirmEditEventListener(e) {
   let title = document.querySelector(`${taskSelectorString} .title`)
   let dueDate = document.querySelector(`${taskSelectorString} .due-date`)
   let description = document.querySelector(`${taskSelectorString} .description`)
-  let confirmEditBtn = document.querySelector(`${taskSelectorString} .confirm-edit-btn`)
+  let confirmEditBtn = document.querySelector(
+    `${taskSelectorString} .confirm-edit-btn`
+  )
 
   objectTask.title = title.value
   objectTask.description = description.value
@@ -99,11 +105,13 @@ const convertTaskElementToEditableEventListener = (event) => {
     event.target.classList.contains('title') ||
     event.target.classList.contains('due-date') ||
     event.target.classList.contains('description')
-  )
-  {
+  ) {
     const domTask = event.target.closest('.task')
     convertTaskElementToEditable(domTask)
-    domTask.removeEventListener('click', convertTaskElementToEditableEventListener)
+    domTask.removeEventListener(
+      'click',
+      convertTaskElementToEditableEventListener
+    )
   }
 }
 
