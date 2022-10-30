@@ -10,6 +10,7 @@ import {
 import {
   displayProjectWithTasksOnDOMEventListener,
   priorityBtnEventListener,
+  confirmEditEventListener,
 } from './eventListeners.js'
 
 const newTaskBtn = document.querySelector('.new-task-btn')
@@ -63,6 +64,7 @@ function createTaskDomElement(taskObject) {
   confirmEditBtn.setAttribute('type', 'button')
   confirmEditBtn.setAttribute('style', 'display: none')
   confirmEditBtn.innerText = 'Confirm'
+  confirmEditBtn.addEventListener('click', confirmEditEventListener)
 
   const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn]
 
