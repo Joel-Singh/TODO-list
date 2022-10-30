@@ -99,7 +99,8 @@ main {
   grid-template-areas:
     'name priority-btn-wrapper due-date'
     'description description description'
-    'confirm-edit-btn confirm-edit-btn confirm-edit-btn';
+    'confirm-edit-btn confirm-edit-btn confirm-edit-btn'
+    'delete-task-btn delete-task-btn delete-task-btn';
   justify-items: center;
   align-items: center;
 }
@@ -141,6 +142,10 @@ main {
 
 .confirm-edit-btn {
   grid-area: confirm-edit-btn;
+}
+
+.delete-task-btn {
+  grid-area: delete-task-btn;
 }
 
 .not-urgent-btn {
