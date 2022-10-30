@@ -72,6 +72,7 @@ function createTaskDomElement(taskObject) {
   deleteTaskBtn.classList.add('delete-task-btn')
   deleteTaskBtn.setAttribute('style', 'display: none')
   deleteTaskBtn.innerText = 'Delete'
+  deleteTaskBtn.addEventListener('click', () => {})
 
   const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn, deleteTaskBtn]
 
@@ -206,6 +207,16 @@ function deleteProject(id) {
   )
 }
 
+function deleteTask(id) {
+  allProjects.forEach(project => {
+    const tasks = project.getTasks()
+    const foundIndex = tasks.findIndex((task) => task.id == id)
+    if (foundIndex != -1) {
+      tasks.splice(foundIndex, 1)
+    }
+  });
+}
+
 function addTaskToCurrentProject(taskObj) {
   currentlyDisplayedProject.addTaskFromObject(taskObj)
   refreshTasksDOM()
@@ -230,4 +241,5 @@ export {
   deleteProject,
   convertTaskElementToEditable,
   convertTaskElementToUneditable,
+  deleteTask,
 }
