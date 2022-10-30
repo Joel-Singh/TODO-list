@@ -111,7 +111,7 @@ function convertTaskElementToEditable(uneditableTaskElement) {
   dueDate.replaceWith(editableDueDate)
   description.replaceWith(editableDescription)
 
-  confirmEditBtn.setAttribute('style', '')
+  confirmEditBtn.setAttribute('style', 'display: block')
   uneditableTaskElement.removeEventListener(
     'click',
     convertTaskElementToEditableEventListener
