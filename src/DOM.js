@@ -68,7 +68,12 @@ function createTaskDomElement(taskObject) {
   confirmEditBtn.innerText = 'Confirm'
   confirmEditBtn.addEventListener('click', confirmEditEventListener)
 
-  const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn]
+  const deleteTaskBtn = document.createElement('button')
+  deleteTaskBtn.classList.add('delete-task-btn')
+  deleteTaskBtn.setAttribute('style', 'display: none')
+  deleteTaskBtn.innerText = 'Delete'
+
+  const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn, deleteTaskBtn]
 
   allElements.forEach((element) => {
     element.setAttribute('data-task-id', taskObject.id)
