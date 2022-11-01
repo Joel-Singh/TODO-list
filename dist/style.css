@@ -26,6 +26,8 @@ main {
 
 aside {
   background-color: var(--grey);
+  display: flex;
+  flex-direction: column;
 }
 
 .project-list-header {
@@ -64,6 +66,7 @@ aside {
   align-items: center;
   gap: 15px;
   padding: 30px;
+  flex-grow: 1;
 }
 
 .project {
