@@ -72,7 +72,7 @@ function createTaskDomElement(taskObject) {
   deleteTaskBtn.classList.add('delete-task-btn')
   deleteTaskBtn.setAttribute('style', 'display: none')
   deleteTaskBtn.innerText = 'Delete'
-  deleteTaskBtn.addEventListener('click', () => {})
+  deleteTaskBtn.addEventListener('click', deleteTask.bind(null, taskObject.id))
 
   const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn, deleteTaskBtn]
 
