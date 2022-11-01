@@ -1,3 +1,9 @@
+import { allProjects } from "./project";
+
+function storeAllProjects() {
+  const json = JSON.stringify(allProjects)
+  localStorage.setItem('allProjects', json)
+}
 function storageAvailable(type) {
   let storage;
   try {
