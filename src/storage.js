@@ -1,9 +1,28 @@
-import { allProjects } from "./project";
+import { addProject, refreshDOM } from "./DOM";
+import { allProjects, makeProject } from "./project";
 
 function storeAllProjects() {
   const json = JSON.stringify(allProjects)
   localStorage.setItem('allProjects', json)
 }
+
+function loadAllProjects() {
+  allProjects.length = 0
+
+  const allProjectsParsedJSON =
+    JSON.parse(localStorage.getItem('allProjects'))
+
+  allProjectsParsedJSON.forEach(parsedJSONProject => {
+    const newProject = makeProject(parsedJSONProject.name)
+    allProjects.push(newProject)
+
+    parsedJSONProject.taskArray.forEach(({title, description, dueDate, priority}) => {
+      newProject.addTask(title, description, dueDate, priority)
+    })
+  });
+  refreshDOM()
+}
+
 function storageAvailable(type) {
   let storage;
   try {
