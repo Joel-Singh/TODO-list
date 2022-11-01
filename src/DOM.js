@@ -215,6 +215,7 @@ function deleteTask(id) {
       tasks.splice(foundIndex, 1)
     }
   });
+  document.querySelector(`.task[data-task-id="${id}"]`).remove()
 }
 
 function addTaskToCurrentProject(taskObj) {
