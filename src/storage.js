@@ -47,3 +47,5 @@ function storageAvailable(type) {
       (storage && storage.length !== 0);
   }
 }
+
+export { storeAllProjects, loadAllProjects }

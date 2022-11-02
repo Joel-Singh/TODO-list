@@ -1,5 +1,6 @@
 import { addProject, displayProjectWithTasksOnDOM, displayAllTasks } from './DOM.js'
 import { addNewTaskEventListeners, newProjectEventListeners, priorityBtnEventListener } from './eventListeners.js'
+import { loadAllProjects, storeAllProjects } from './storage.js'
 
 newProjectEventListeners()
 addNewTaskEventListeners()
@@ -14,6 +15,13 @@ document.querySelector('.new-task-input .very-urgent-btn')
 
 document.querySelector('.all-tasks-btn')
   .addEventListener('click', displayAllTasks)
+
+document.querySelector('.clear-local-storage-btn')
+  .addEventListener('click', () => localStorage.clear())
+document.querySelector('.save-to-local-storage-btn')
+  .addEventListener('click', storeAllProjects)
+document.querySelector('.load-from-local-storage')
+  .addEventListener('click', loadAllProjects)
 
 const defaultProject = addProject('Default Project')
 defaultProject.addTask(`Wash the dishes`, `The dishes haven't been washed and the damn roommates won't do em`, `2019-08-13`, `not-urgent`)
