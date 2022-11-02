@@ -220,10 +220,6 @@ function deleteTask(id) {
 
 function addTaskToCurrentProject(taskObj) {
   currentlyDisplayedProject.addTaskFromObject(taskObj)
-  refreshTasksDOM()
-}
-
-function refreshTasksDOM() {
   displayProjectWithTasksOnDOM(currentlyDisplayedProject)
 }
 
