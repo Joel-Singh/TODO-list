@@ -230,6 +230,18 @@ function addTaskToCurrentProject(taskObj) {
   displayProjectWithTasksOnDOM(currentlyDisplayedProject)
 }
 
+function refreshDOM() {
+  function refreshDOMProjectList() {
+    allProjects.forEach(project => {
+      projectListDOM.prepend(createProjectDomElement(project))
+    })
+  }
+  removeDOMElementsInTaskList()
+  removeDOMElementsInProjectList()
+  displayProjectWithTasksOnDOM(allProjects[0])
+  refreshDOMProjectList()
+}
+
 function displayAllTasks() {
   removeDOMElementsInTaskList()
   changeTaskListHeader('All Tasks')
@@ -246,4 +258,5 @@ export {
   convertTaskElementToEditable,
   convertTaskElementToUneditable,
   deleteTask,
+  refreshDOM,
 }
