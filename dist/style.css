@@ -73,6 +73,10 @@ aside {
   color: white;
 }
 
+.all-tasks {
+  margin-bottom: auto;
+}
+
 main {
   display: flex;
   flex-direction: column;
