@@ -160,6 +160,13 @@ function removeDOMElementsInTaskList() {
   allDomTasks.forEach((element) => element.remove())
 }
 
+function removeDOMElementsInProjectList() {
+  const allDomProjects = [
+    ...document.querySelectorAll('.project')
+  ]
+  allDomProjects.forEach(proj => proj.remove())
+}
+
 function displayProjectWithTasksOnDOM(projectObject) {
   removeDOMElementsInTaskList()
   projectObject.getTasks().forEach((task) => displayTask(task))
