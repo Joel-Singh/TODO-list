@@ -12,7 +12,7 @@ document.querySelector('.new-task-input .urgent-btn')
 document.querySelector('.new-task-input .very-urgent-btn')
   .addEventListener('click', priorityBtnEventListener.bind(null, 'very-urgent', newTaskInput))
 
-document.querySelector('.all-tasks')
+document.querySelector('.all-tasks-btn')
   .addEventListener('click', displayAllTasks)
 
 const defaultProject = addProject('Default Project')
