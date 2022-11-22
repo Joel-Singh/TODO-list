@@ -74,7 +74,14 @@ function createTaskDomElement(taskObject) {
   deleteTaskBtn.innerText = 'Delete'
   deleteTaskBtn.addEventListener('click', deleteTask.bind(null, taskObject.id))
 
-  const allElements = [title, btnWrapper, dueDate, description, confirmEditBtn, deleteTaskBtn]
+  const allElements = [
+    title,
+    btnWrapper,
+    dueDate,
+    description,
+    confirmEditBtn,
+    deleteTaskBtn,
+  ]
 
   allElements.forEach((element) => {
     element.setAttribute('data-task-id', taskObject.id)
@@ -161,10 +168,8 @@ function removeDOMElementsInTaskList() {
 }
 
 function removeDOMElementsInProjectList() {
-  const allDomProjects = [
-    ...document.querySelectorAll('.project')
-  ]
-  allDomProjects.forEach(proj => proj.remove())
+  const allDomProjects = [...document.querySelectorAll('.project')]
+  allDomProjects.forEach((proj) => proj.remove())
 }
 
 function displayProjectWithTasksOnDOM(projectObject) {
@@ -215,13 +220,13 @@ function deleteProject(id) {
 }
 
 function deleteTask(id) {
-  allProjects.forEach(project => {
+  allProjects.forEach((project) => {
     const tasks = project.getTasks()
     const foundIndex = tasks.findIndex((task) => task.id == id)
     if (foundIndex != -1) {
       tasks.splice(foundIndex, 1)
     }
-  });
+  })
   document.querySelector(`.task[data-task-id="${id}"]`).remove()
 }
 
@@ -232,7 +237,7 @@ function addTaskToCurrentProject(taskObj) {
 
 function refreshDOM() {
   function refreshDOMProjectList() {
-    allProjects.forEach(project => {
+    allProjects.forEach((project) => {
       projectListDOM.prepend(createProjectDomElement(project))
     })
   }
